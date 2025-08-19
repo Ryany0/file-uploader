@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <%- include("./new-folder-form") %>
+        <%- include("./file-form") %>
+        <form action="/delete" method="post">
+            <button type="submit">Delete Folder</button>
+        </form>
+        <% if (folders) { %>
+            <% folders.forEach(folder => { %>
+                <article><a href="<%= folder.route %>"><%= folder.route %></a></article>
+            <% }) %>
+        <% } else { %>
+            <p>No folders created</p>
+        <% } %>
+        <h1>Files</h1>
+
+        <% if (files) { %>
+            <table>
+
+                <tr>
+                    <th>File name</th>
+                    <th>Size</th>
+                    <th>Upload time</th>
+                </tr>
+
+                <% files.forEach(file => { %>
+
+                    <td><%= file.name %></td>
+                    <td><%= file.size %> Bytes</td>
+                    <td><%= format(file.upload, "yyyy-MM-dd hh:mm:ss") %></td>
+
+                    <td>
+                        <form action="/download" method="post">
+                            <input type="hidden" value="<%= file.id %>" name="fileId">
+                            <button type="submit">Download</button>
+                        </form>
+                    </td>
+                    
+                    <td>
+                        <form action="/deleteFile" method="post">
+                            <input type="hidden" value="<%= file.id %>" name="fileId">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+
+                <% }) %>
+
+            </table>
+        <% } %>
+    </body>
+</html>

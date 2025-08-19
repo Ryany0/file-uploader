@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <% if (!locals.currentUser) { %>
+            <a href="/log-in"><button>Log In</button></a>
+        <% } %>
+
+        <% if (locals.currentUser) { %>
+            <h2>Welcome: <%= locals.currentUser.name %></h2>
+            <a href="/log-out"><button>Log Out</button></a>
+            <form action="/" method="post">
+                <input type="text" name="name" id="name" required placeholder="Folder name">
+                <button type="submit">Add Folder</button>
+            </form>
+            <%- include("./folders") %>
+        <% } %>
+    </body>
+</html>

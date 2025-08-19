@@ -1,0 +1,12 @@
+<html>
+    <head></head>
+    <body>
+        <%- include("./errors") %>
+        <form action="/log-in" method="post">
+            <input type="email" name="email" id="email" placeholder="email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </body>
+    <a href="/sign-up"><button>Sign Up</button></a>
+</html>

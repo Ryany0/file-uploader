@@ -1,0 +1,21 @@
+<html>
+    <head></head>
+    <body>
+        <%- include('./errors') %>
+        <form action="/sign-up" method="post">
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required>
+
+            <label for="confirm-password">Confirm Password: </label>
+            <input type="password" name="confirm-password" id="confirm-password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </body>
+</html>
